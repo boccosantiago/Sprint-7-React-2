@@ -1,5 +1,7 @@
 import './styles.css';
 import { useState } from 'react';
+import {PagesLanguages} from './components/PagesLanguages';
+
 
 
 function App() {
@@ -8,27 +10,33 @@ function App() {
 const [data, setData] = useState({
   webPage: false,
   seo: false,
-  ads: false
+  ads: false,
+  numPage: 1,
+  numLang: 1,
+
 })
 
 function handleChange(event){
-  const {name, checked} = event.target 
-
+  const {name, type, checked, value} = event.target 
+  console.log(value)
   setData(prevData => {
     return {
       ...prevData,
-      [name]: checked
+      [name]: type === "checkbox" ? checked : value,
+
     }
   })
 }
 
 function totalSum(){
-  let total = (data.webPage ? 500 : 0) +
+  let total = (data.webPage ? 500 + (data.numPage * data.numLang * 30) : 0) + 
   (data.seo ? 300 : 0) +
   (data.ads ? 200 : 0)
-
+  console.log(data.numPage)
   return total
 }
+
+
 
   return (
     <div>
@@ -40,7 +48,15 @@ function totalSum(){
       onChange={handleChange}
       checked={data.webPage}
       />
-      <label htmlFor="webPage">Una pagina web (500€)</label>
+      <label htmlFor="webPage">Una página web (500€)</label>
+
+      <PagesLanguages 
+      onChange = {handleChange}
+      numPage={data.numPage} 
+      numLang={data.numLang} 
+      data={data.webPage}
+      />
+
       <br/>
       <input 
       type="checkbox" 
