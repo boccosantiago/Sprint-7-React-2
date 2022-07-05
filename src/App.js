@@ -11,36 +11,48 @@ const [data, setData] = useState({
   webPage: false,
   seo: false,
   ads: false,
-  numPage: 1,
-  numLang: 1,
-
+  numPage: 0,
+  numLang: 0
 })
 
 function handleChange(event){
   const {name, type, checked, value} = event.target 
-  console.log(value)
   setData(prevData => {
     return {
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : (value < 0 ? 0 : value)
 
     }
   })
 }
 
 function totalSum(){
-  let total = (data.webPage ? 500 + (data.numPage * data.numLang * 30) : 0) + 
+  let total = (data.webPage ? 500 : 0) +
+  (data.numLang * data.numPage * 30) +
   (data.seo ? 300 : 0) +
   (data.ads ? 200 : 0)
-  console.log(data.numPage)
   return total
 }
 
+
+// function counter(event, i) {
+//   const {name, value} = event.target
+//   const numPage = parseInt(data.numPage)
+//   const numLang = parseInt(data.numLang)
+//   setData((prevData) => {
+//     return{
+//       ...prevData,
+//       [value]: name === "numPage" ? numPage + i : numLang + i
+//     }
+
+//   });
+// }
 
 
   return (
     <div>
       <h3>¿Que quieres hacer?</h3>
+      
       <input 
       type="checkbox" 
       name= "webPage"
@@ -51,13 +63,15 @@ function totalSum(){
       <label htmlFor="webPage">Una página web (500€)</label>
 
       <PagesLanguages 
+      numPage = {data.numPage}
+      numLang = {data.numLang}
       onChange = {handleChange}
-      numPage={data.numPage} 
-      numLang={data.numLang} 
-      data={data.webPage}
+      data= {data.webPage}
+      setData = {setData}
       />
 
       <br/>
+
       <input 
       type="checkbox" 
       name= "seo"
@@ -66,7 +80,9 @@ function totalSum(){
       checked={data.seo}
       />
       <label htmlFor="seo">Una consultoria SEO (300€)</label>
+
       <br/>
+
       <input 
       type="checkbox" 
       name= "ads"
@@ -75,6 +91,7 @@ function totalSum(){
       checked={data.ads}
       />
       <label htmlFor="ads">Una campaña de Google Ads (200€)</label>
+      
       <h3>Precio: {totalSum()}  € </h3>
     </div>
   );
