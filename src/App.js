@@ -1,15 +1,27 @@
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PagesLanguages } from "./components/PagesLanguages";
 
 function App() {
-  const [data, setData] = useState({
-    webPage: false,
-    seo: false,
-    ads: false,
-    numPage: 0,
-    numLang: 0,
+  const [data, setData] = useState(() => {
+    const initialData = {
+      webPage: false,
+      seo: false,
+      ads: false,
+      numPage: 0,
+      numLang: 0,
+    };
+    try {
+      const getData = localStorage.getItem("data");
+      return getData ? JSON.parse(getData) : initialData;
+    } catch (error) {
+      return initialData;
+    }
   });
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [data]);
 
   function handleChange(event) {
     const { name, type, checked, value } = event.target;
@@ -24,7 +36,7 @@ function App() {
 
   function totalSum() {
     let total =
-      (data.webPage ? 500 + (data.numLang * data.numPage * 30) : 0) +
+      (data.webPage ? 500 + data.numLang * data.numPage * 30 : 0) +
       (data.seo ? 300 : 0) +
       (data.ads ? 200 : 0);
     return total;

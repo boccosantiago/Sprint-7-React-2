@@ -13,14 +13,12 @@ export function PagesLanguages(props) {
       };
     });
   }
-  console.log(props.numPage);
 
   return (
     <Panel show={props.data}>
       <label className="pages">Número de páginas</label>
       <button name="numPage" onClick={(e) => counter(e, 1)}>
-        {" "}
-        +{" "}
+        +
       </button>
 
       <input
@@ -37,8 +35,7 @@ export function PagesLanguages(props) {
           if (props.numPage > 0) return counter(e, -1);
         }}
       >
-        {" "}
-        -{" "}
+       -
       </button>
       <br />
       <label className="pages">Número de idiomas</label>
@@ -60,8 +57,7 @@ export function PagesLanguages(props) {
           if (props.numLang > 0) return counter(e, -1);
         }}
       >
-        {" "}
-        -{" "}
+       -
       </button>
     </Panel>
   );
