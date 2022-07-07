@@ -9,8 +9,10 @@
 #numLang, #numPage{
   padding: 2px;
   margin: 10px 10px 0 10px ;
-  border: solid 1px rgb(202, 202, 202);
+  border: none;
   border-radius: 3px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .pages{
