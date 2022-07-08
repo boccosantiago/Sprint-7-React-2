@@ -2,7 +2,8 @@
   font-family: 'Inter', sans-serif;
 }
 
-.App {
+
+.main{
   text-align: center;
 }
 
@@ -20,4 +21,28 @@
   margin-right: 15px;
 }
 
+.btnPresupuesto{
+  cursor: pointer;
+  border: none;
+  background-color: rgb(8, 8, 201);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgb(110, 104, 174) 5px 3px 0px 1px;
+  font-weight: 500;
+}
 
+.btnPresupuesto:hover{
+  background-color: rgb(10, 10, 154);
+}
+
+
+.link{
+  color: red;
+  text-decoration: none;
+
+}
+
+.link:hover{
+  color: rgb(174, 0, 0);
+}

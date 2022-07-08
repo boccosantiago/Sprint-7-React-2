@@ -1,6 +1,8 @@
 import { Panel } from "./styled";
 
+
 export function PagesLanguages(props) {
+  
   function counter(event, i) {
     const { name } = event.target;
     const numPage = parseInt(props.numPage);
@@ -13,6 +15,7 @@ export function PagesLanguages(props) {
       };
     });
   }
+  
 
   return (
     <Panel show={props.data}>
