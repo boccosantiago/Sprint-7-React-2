@@ -3,6 +3,7 @@ import { PagesLanguages } from "./PagesLanguages";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export function Main() {
 
   const [data, setData] = useState(() => {
@@ -95,6 +96,7 @@ export function Main() {
             Regresar al Home
             </Link>
         </div>
+   
 
     </div>
     

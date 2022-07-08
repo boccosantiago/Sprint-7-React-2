@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Panel = styled.div`
   border: solid 3px black;
-  width: 290px;
+  width: 300px;
   height: 90px;
   margin-top: 15px;
   border-radius: 10px;
@@ -14,16 +14,4 @@ export const Panel = styled.div`
     width: 20px;
   }
 
-  button {
-    border: none;
-    color: white;
-    background-color: orange;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 20px;
-    height: 22px;
-  }
-  button:hover {
-    background-color: rgb(250, 109, 0);
-  }
 `;
