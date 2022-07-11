@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 
-export function PagesLanguages(props) {
+export default function PagesLanguages(props) {
 
   const [popupPage, setPopupPage] = useState(false)
   const [popupLang, setPopupLang] = useState(false)
@@ -22,9 +22,11 @@ export function PagesLanguages(props) {
       };
     });
   }
+
   
 
   return (
+    <div>
     <Panel show={props.data}>
       <label className="pages">Número de páginas</label>
       <button 
@@ -91,13 +93,17 @@ export function PagesLanguages(props) {
         i
       </button>
 
-      <Popup 
-      triggerPage={popupPage}
-      setTriggerPage={setPopupPage}
-      triggerLang={popupLang}
-      setTriggerLang={setPopupLang}
-      />
-
+  
     </Panel>
+
+
+    <Popup 
+    triggerPage={popupPage}
+    setTriggerPage={setPopupPage}
+    triggerLang={popupLang}
+    setTriggerLang={setPopupLang}
+    />
+
+    </div>
   );
 }

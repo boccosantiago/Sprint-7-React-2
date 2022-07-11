@@ -1,11 +1,10 @@
 import React from "react";
-import { PagesLanguages } from "./PagesLanguages";
+import PagesLanguages from "./PagesLanguages";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import Budget from "./Budget";
 
 export function Main() {
-
   const [data, setData] = useState(() => {
     const initialData = {
       webPage: false,
@@ -13,6 +12,8 @@ export function Main() {
       ads: false,
       numPage: 0,
       numLang: 0,
+      budget: "",
+      client: "",
     };
     try {
       const getData = localStorage.getItem("data");
@@ -21,18 +22,25 @@ export function Main() {
       return initialData;
     }
   });
+  console.log(data);
 
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
   }, [data]);
 
   function handleChange(event) {
-    const { name, type, checked, value } = event.target;
+    const { name, type, checked, value} = event.target;
     setData((prevData) => {
       return {
         ...prevData,
         [name]:
-          type === "checkbox" ? checked : value < 0 || isNaN(value) ? 0 : value,
+          type === "checkbox"
+            ? checked
+            : value /* className === "presup"
+            ? value
+            : value < 0 || isNaN(value)
+            ? 0
+            : value, */
       };
     });
   }
@@ -45,60 +53,94 @@ export function Main() {
     return total;
   }
 
- 
   return (
-    <div>
-      <h3>¿Que quieres hacer?</h3>
+    <div className="form--div">
+      <form className="form">
+        <div className="main--div">
+          <h3>¿Que quieres hacer?</h3>
 
-      <input
-        type="checkbox"
-        name="webPage"
-        id="webPage"
-        onChange={handleChange}
-        checked={data.webPage}
-      />
-      <label htmlFor="webPage">Una página web (500€)</label>
+          <input
+            type="checkbox"
+            name="webPage"
+            id="webPage"
+            onChange={handleChange}
+            checked={data.webPage}
+          />
+          <label htmlFor="webPage">Una página web (500€)</label>
 
-      <PagesLanguages
+          <PagesLanguages
+            numPage={data.numPage}
+            numLang={data.numLang}
+            onChange={handleChange}
+            data={data.webPage}
+            setData={setData}
+          />
+
+          <br />
+
+          <input
+            type="checkbox"
+            name="seo"
+            id="seo"
+            onChange={handleChange}
+            checked={data.seo}
+          />
+          <label htmlFor="seo">Una consultoria SEO (300€)</label>
+
+          <br />
+
+          <input
+            type="checkbox"
+            name="ads"
+            id="ads"
+            onChange={handleChange}
+            checked={data.ads}
+          />
+          <label htmlFor="ads">Una campaña de Google Ads (200€)</label>
+
+          <h3>Precio: {totalSum()} € </h3>
+
+          <label htmlFor="budget">Nombre del presupuesto</label>
+          <br />
+          <input
+            type="text"
+            className="presup"
+            name="budget"
+            id="budget"
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="client">Nombre del cliente</label>
+          <br />
+          <input
+            type="text"
+            className="presup"
+            name="client"
+            id="client"
+            onChange={handleChange}
+          />
+          <br />
+
+          <div>
+          <Link className="link" to="/">
+          Regresar al Home
+          </Link>
+          </div>
+        </div>
+      </form>
+
+     
+
+      <Budget
+        total={totalSum()}
+        budget={data.budget}
+        client={data.client}
+        webPage={data.webPage}
+        seo={data.seo}
+        ads={data.ads}
         numPage={data.numPage}
         numLang={data.numLang}
-        onChange={handleChange}
-        data={data.webPage}
-        setData={setData}
       />
-
-      <br />
-
-      <input
-        type="checkbox"
-        name="seo"
-        id="seo"
-        onChange={handleChange}
-        checked={data.seo}
-      />
-      <label htmlFor="seo">Una consultoria SEO (300€)</label>
-
-      <br />
-
-      <input
-        type="checkbox"
-        name="ads"
-        id="ads"
-        onChange={handleChange}
-        checked={data.ads}
-      />
-      <label htmlFor="ads">Una campaña de Google Ads (200€)</label>
-
-      <h3>Precio: {totalSum()} € </h3>
-
-        <div>
-            <Link className="link" to="/">
-            Regresar al Home
-            </Link>
-        </div>
-   
-
-    </div>
-    
+       </div>
   );
 }

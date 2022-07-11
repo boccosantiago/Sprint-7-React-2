@@ -3,8 +3,27 @@
 }
 
 
-.main{
+.home{
   text-align: center;
+}
+
+
+
+
+.main--div{
+
+  display: block;
+
+}
+
+.form{
+
+
+
+}
+
+.form--div{
+  display: flex;
 }
 
 #numLang, #numPage{
