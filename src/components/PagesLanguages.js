@@ -2,13 +2,12 @@ import { Panel } from "./styled";
 import Popup from "./Popup";
 import { useState } from "react";
 
+export default function PagesLanguages(props) {
 
+  const [popupPage, setPopupPage] = useState(false);
+  const [popupLang, setPopupLang] = useState(false);
 
-export function PagesLanguages(props) {
-
-  const [popupPage, setPopupPage] = useState(false)
-  const [popupLang, setPopupLang] = useState(false)
-
+  console.log("hola", props)
 
   function counter(event, i) {
     const { name } = event.target;
@@ -22,15 +21,15 @@ export function PagesLanguages(props) {
       };
     });
   }
-  
 
   return (
-    <Panel show={props.data}>
+    <Panel show={props.webPage}>
       <label className="pages">Número de páginas</label>
-      <button 
-      className="btnPlusMinus"
-      name="numPage" 
-      onClick={(e) => counter(e, 1)}>
+      <button
+        className="btnPlusMinus"
+        name="numPage"
+        onClick={(e) => counter(e, 1)}
+      >
         +
       </button>
 
@@ -49,21 +48,18 @@ export function PagesLanguages(props) {
           if (props.numPage > 0) return counter(e, -1);
         }}
       >
-       -
+        -
       </button>
-      <button 
-      onClick={()=> setPopupPage(true)}
-      className="info"
-      >
+      <button onClick={() => setPopupPage(true)} className="info">
         i
       </button>
       <br />
       <label className="pages">Número de idiomas</label>
-      <button 
-      className="btnPlusMinus"
-      name="numLang" 
-      onClick={(e) => counter(e, 1)}>
-        
+      <button
+        className="btnPlusMinus"
+        name="numLang"
+        onClick={(e) => counter(e, 1)}
+      >
         +
       </button>
       <input
@@ -81,23 +77,19 @@ export function PagesLanguages(props) {
           if (props.numLang > 0) return counter(e, -1);
         }}
       >
-       -
+        -
       </button>
 
-      <button 
-      onClick={()=> setPopupLang(true)}
-      className="info"
-      >
+      <button onClick={() => setPopupLang(true)} className="info">
         i
       </button>
-
-      <Popup 
-      triggerPage={popupPage}
-      setTriggerPage={setPopupPage}
-      triggerLang={popupLang}
-      setTriggerLang={setPopupLang}
+      
+      <Popup
+        triggerPage={popupPage}
+        setTriggerPage={setPopupPage}
+        triggerLang={popupLang}
+        setTriggerLang={setPopupLang}
       />
-
-    </Panel>
+      </Panel>
   );
 }

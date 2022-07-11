@@ -1,0 +1,15 @@
+.budget{
+    margin: 20px;
+    padding: 20px;
+    font-weight: 500;
+    background-color: rgb(227, 227, 227);
+    width: 200px;
+    border: 1px solid black;
+}
+
+.budget--container{
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+}

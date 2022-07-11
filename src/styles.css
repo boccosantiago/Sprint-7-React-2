@@ -3,8 +3,21 @@
 }
 
 
-.main{
+.home{
   text-align: center;
+}
+
+
+
+.form{
+
+display: block;
+  width: 300px;
+
+}
+
+.form--div{
+  display: flex;
 }
 
 #numLang, #numPage{

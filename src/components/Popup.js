@@ -5,7 +5,7 @@ function Popup(props) {
   if (props.triggerPage) {
     return (
       <div onClick={() => props.setTriggerPage(false)} className="popup">
-        <div onClick={(e) => e.stopPropagation()} className="popup-inner">
+        <div /* onClick={(e) => e.stopPropagation()}  */className="popup-inner">
           <p>
             En este componente deberá indicar el número de páginas que desea
             para su sitio web.
@@ -17,7 +17,7 @@ function Popup(props) {
   if (props.triggerLang) {
     return (
       <div onClick={() => props.setTriggerLang(false)} className="popup">
-        <div onClick={(e) => e.stopPropagation()} className="popup-inner">
+        <div /* onClick={(e) => e.stopPropagation()}  */className="popup-inner">
           <p>
             En este componente deberá indicar el número de idiomas que desea
             para su sitio web.
