@@ -1,5 +1,5 @@
 import React from "react";
-import { PagesLanguages } from "./PagesLanguages";
+import PagesLanguages from "./PagesLanguages";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Budget from "./Budget";
@@ -22,6 +22,7 @@ export function Main() {
       return initialData;
     }
   });
+
 
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
@@ -51,8 +52,10 @@ export function Main() {
   }
 
   return (
+
     <div className="form-container">
       <div className="form">
+
         <h3>¿Que quieres hacer?</h3>
 
         <input
@@ -68,7 +71,9 @@ export function Main() {
           numPage={data.numPage}
           numLang={data.numLang}
           onChange={handleChange}
+
           data={data.webPage}
+
           setData={setData}
         />
 
@@ -118,13 +123,16 @@ export function Main() {
           value={data.client}
         />
         <br />
+
         <br />
+
 
         <div>
           <Link className="link" to="/">
             Regresar al Home
           </Link>
         </div>
+
       </div>
 
         <Budget
@@ -137,6 +145,7 @@ export function Main() {
           numPage={data.numPage}
           numLang={data.numLang}
         />
+
     </div>
   );
 }

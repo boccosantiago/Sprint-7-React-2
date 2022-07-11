@@ -29,17 +29,20 @@ export default function Budget(props) {
   }/${current.getFullYear()}`;
 
 
+
   const budgetForm = users.map((user, index) => {
     return (
     <div className="budget" key={index}>
     <p>Fecha: {date} </p>
     <p>Nombre del presupuesto: <br/> {user.budget} </p>
     <p>Nombre de cliente: <br/> {user.client}</p>
+
     <p>Precio: {user.total} € </p>
     </div>)})
   
 
   return (
+
     <div className="main-container">
       <button onClick={() => handleUsers()}>Agregar</button>
       <div className="budget-container">
