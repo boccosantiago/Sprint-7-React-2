@@ -3,9 +3,15 @@
 }
 
 
-.main{
+.home{
   text-align: center;
 }
+
+
+.form-container{
+  display: flex;
+}
+
 
 #numLang, #numPage{
   padding: 2px;
