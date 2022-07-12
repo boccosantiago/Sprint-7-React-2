@@ -4,7 +4,10 @@ import "./Budget.css";
 export default function Budget(props) {
   const [users, setUsers] = useState([]);
 
-  function handleUser() {
+  console.log(users)
+
+  function handleUsers() {
+ 
     
     const newUser = {
       webPage: props.webPage,
@@ -17,7 +20,7 @@ export default function Budget(props) {
       total: props.total,
     };
 
-    setUsers([...users, newUser]);
+    setUsers(prevUsers => [...prevUsers, newUser]);
   }
 
   const current = new Date();
@@ -25,21 +28,22 @@ export default function Budget(props) {
     current.getMonth() + 1
   }/${current.getFullYear()}`;
 
-  /*   console.log(users) */
+
+  const budgetForm = users.map((user, index) => {
+    return (
+    <div className="budget" key={index}>
+    <p>Fecha: {date} </p>
+    <p>Nombre del presupuesto: <br/> {user.budget} </p>
+    <p>Nombre de cliente: <br/> {user.client}</p>
+    <p>Precio: {user.total} € </p>
+    </div>)})
+  
+
   return (
-    <div>
-      <div>
-        <button onClick={handleUser}>Agregar</button>
-      </div>
-      <div>
-        {users.map((user, index) => (
-          <ul className="budget" key={index}>
-            <p>Fecha: {date}</p>
-            <p>Nro. de presupuesto: {user.budget} </p>
-            <p>Nombre de cliente: {user.client}</p>
-            <p>Precio: {user.total} € </p>
-          </ul>
-        ))}
+    <div className="main-container">
+      <button onClick={() => handleUsers()}>Agregar</button>
+      <div className="budget-container">
+      {budgetForm} 
       </div>
     </div>
   );

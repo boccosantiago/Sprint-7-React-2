@@ -8,23 +8,10 @@
 }
 
 
-
-
-.main--div{
-
-  display: block;
-
-}
-
-.form{
-
-
-
-}
-
-.form--div{
+.form-container{
   display: flex;
 }
+
 
 #numLang, #numPage{
   padding: 2px;
