@@ -7,27 +7,34 @@
 }
 
 .budget{
-    margin: 20px 10px 0px 10px;
+    margin: 0px 10px 20px 10px;
     padding: 20px;
     font-weight: 500;
-    background-color: rgb(196, 190, 230);
+    background-color: rgb(64, 64, 214);
     width: 200px;
     border-radius: 10px;
     box-shadow: 3px 3px 2px black;
+    color: white;
 }
 
-.main-container button {
+.agregar {
     position: relative;
-    left: 50px;
-    top: 10px;
+    left: -90px;
+    top: 360px;
     border: none;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 3px 3px 1px black;
     cursor: pointer;
+    font-weight: 600;
 }
 
-.main-container button:hover {
+.agregar:hover {
+    background-color: rgb(195, 195, 195);
+}
+
+.agregar:active {
+    transform: scale(.95);
     background-color: rgb(195, 195, 195);
 }
 
