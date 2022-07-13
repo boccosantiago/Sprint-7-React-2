@@ -4,27 +4,28 @@
     display: flex;
     flex-wrap:wrap;
     z-index: -1;
+    position: relative;
 }
 
 .budget{
-    margin: 0px 10px 20px 10px;
+    margin: 10px 10px 20px 10px;
     padding: 5px 20px ;
     font-weight: 500;
     background-color: rgb(64, 64, 214);
-    width: 200px;
+    width: 210px;
     border-radius: 20px;
     box-shadow: 3px 3px 2px rgb(152, 152, 152);
     color: white;
 }
 
 .agregar {
-    position: relative;
-    left: -90px;
-    top: 340px;
+    position: absolute;
+    left: 220px;
+    top: 250px;
     border: none;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 3px 3px 1px black;
+    border: 1px solid rgb(131, 131, 131);
     cursor: pointer;
     font-weight: 600;
 }
@@ -43,9 +44,10 @@
 .buttons-order button{
     border: none;
     padding: 6px;
+    margin-bottom: 5px;
     margin-right: 10px;
     border-radius: 10px;
-    box-shadow: 3px 3px 1px black;
+    border: 1px solid rgb(131, 131, 131);
     cursor: pointer;
     font-weight: 600;
 }
@@ -62,4 +64,9 @@
 .text{
     font-weight: 300;
     font-style: italic;
+}
+
+.search-bar{
+    margin-left: 0px;
+    font-size: 1em;
 }

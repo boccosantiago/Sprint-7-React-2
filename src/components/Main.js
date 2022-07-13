@@ -22,7 +22,6 @@ export function Main() {
       return initialData;
     }
   });
-  console.log(data);
 
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
