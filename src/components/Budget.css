@@ -8,19 +8,19 @@
 
 .budget{
     margin: 0px 10px 20px 10px;
-    padding: 20px;
+    padding: 5px 20px ;
     font-weight: 500;
     background-color: rgb(64, 64, 214);
     width: 200px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 2px black;
+    border-radius: 20px;
+    box-shadow: 3px 3px 2px rgb(152, 152, 152);
     color: white;
 }
 
 .agregar {
     position: relative;
     left: -90px;
-    top: 360px;
+    top: 340px;
     border: none;
     padding: 10px;
     border-radius: 10px;
@@ -37,4 +37,29 @@
     transform: scale(.95);
     background-color: rgb(195, 195, 195);
 }
+.buttons-order{
+    margin: 10px 20px 0px 40px
+}
+.buttons-order button{
+    border: none;
+    padding: 6px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px black;
+    cursor: pointer;
+    font-weight: 600;
+}
 
+.buttons-order button:hover {
+    background-color: rgb(195, 195, 195);
+}
+
+.buttons-order button:active {
+    transform: scale(.95);
+    background-color: rgb(195, 195, 195);
+}
+
+.text{
+    font-weight: 300;
+    font-style: italic;
+}

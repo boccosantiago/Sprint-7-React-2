@@ -8,12 +8,15 @@ export default function Budget(props) {
 
   const current = new Date();
 
-  const date = `${current.getDate()}/${
+  const date = current.toString().slice(0,24)
+
+ /*  const date = `${current.getDate()}/${
     current.getMonth() + 1
-  }/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
+  }/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`; */
 
   function handleUsers() {
     const newUser = {
+      budget: props.budget,
       client: props.client,
       date: date,
       currentDate: current,
@@ -23,7 +26,6 @@ export default function Budget(props) {
       ads: props.ads,
       numPage: props.numPage,
       numLang: props.numLang,
-      budget: props.budget,
     };
 
     setUsers((prevUsers) => [...prevUsers, newUser]);
@@ -31,34 +33,31 @@ export default function Budget(props) {
 
   function alphabetical() {
     let result = users.sort((a, b) => {
-      return a.client > b.client ? 1 : -1;
+      return a.budget > b.budget ? 1 : -1;
     });
-    setUsers(() => [...result]);
+    setUsers([...result]);
   }
 
   function orderByDate() {
     let result = users.sort((a, b) => {
-      return a.currentDate < b.currentDate ? 1 : -1;
+      return b.currentDate - a.currentDate 
     });
-    setUsers(() => [...result]);
+    setUsers([...result]);
   }
+
   function defaultOrder() {
     let result = users.sort((a, b) => {
-      return a.currentDate > b.currentDate ? 1 : -1;
+      return a.currentDate - b.currentDate
     });
-    setUsers(() => [...result]);
+    setUsers([...result]);
   }
 
   const budgetForm = users.map((user, index) => {
     return (
       <div className="budget" key={index}>
         <p>{user.date}</p>
-        <p>
-          Nombre del presupuesto: <br /> {user.budget}{" "}
-        </p>
-        <p>
-          Nombre de cliente: <br /> {user.client}
-        </p>
+        <p>Nombre del presupuesto: <br /><p className="text">{user.budget}</p> </p>
+        <p> Nombre de cliente: <br /><p className="text"> {user.client}</p> </p>
         <p>Precio: {user.total} € </p>
       </div>
     );
@@ -66,12 +65,10 @@ export default function Budget(props) {
 
   return (
     <div className="main-container">
-      <div>
-        <button onClick={() => alphabetical(users)}>
-          Ordenar Alfabeticamente
-        </button>
-        <button onClick={() => orderByDate(users)}>Ordenar por fecha</button>
-        <button onClick={() => defaultOrder(users)}>Reiniciar Orden</button>
+      <div className="buttons-order">
+        <button onClick={alphabetical}>Ordenar Alfabéticamente</button>
+        <button onClick={orderByDate}>Más recientes</button>
+        <button onClick={defaultOrder}>Más antiguos</button>
       </div>
       <button className="agregar" onClick={() => handleUsers()}>
         Agregar
