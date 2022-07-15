@@ -19,9 +19,6 @@
 }
 
 .agregar {
-    position: absolute;
-    left: 220px;
-    top: 250px;
     border: none;
     padding: 10px;
     border-radius: 10px;

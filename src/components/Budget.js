@@ -1,12 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Budget.css";
 
 export default function Budget(props) {
-  const [users, setUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([])
+  const [users, setUsers] = useState(() => {
+    const initialData = [];
+    try {
+      const getData = localStorage.getItem("savedBudget");
+      return getData ? JSON.parse(getData) : initialData;
+    } catch (error) {
+      return initialData;
+    }
+  });
+  
+  useEffect(() => {
+    localStorage.setItem("savedBudget", JSON.stringify(users));
+  }, [users]); ;
+
+  const [filteredUsers, setFilteredUsers] = useState([...users])
+
+  
+  
+  console.log('users',users)
+
   const currentDate = new Date();
 
-  const date = currentDate.toString().slice(0, 24);
+  const fecha = Date.parse(currentDate)
+
+  //const date = currentDate.toString().slice(0, 24);
 
   /*  const date = `${current.getDate()}/${
     current.getMonth() + 1
@@ -16,8 +36,7 @@ export default function Budget(props) {
     const newUser = {
       budget: props.budget,
       client: props.client,
-      date: date,
-      currentDate: currentDate,
+      date: fecha,
       total: props.total,
       webPage: props.webPage,
       seo: props.seo,
@@ -27,40 +46,34 @@ export default function Budget(props) {
     };
 
     setUsers((prevUsers) => [newUser,...prevUsers]);
-    setFilteredUsers([newUser,...users]);
+    setFilteredUsers([newUser, ...users]);
 
-    try {
-      const getData = localStorage.getItem("savedBudget");
-      return getData ? JSON.parse(getData) : newUser;
-    } catch (error) {
-      return users;
-    }
   }
 
-  useEffect(() => {
-    localStorage.setItem("savedBudget", JSON.stringify(users));
-  }, [users]);
 
 
   function alphabetical() {
-    let result = filteredUsers.sort((a, b) => {
+    let result = [...filteredUsers].sort((a, b) => {
       return a.budget > b.budget ? 1 : -1;
     });
-    setUsers([...result]);
+    console.log('alfa', result)
+    setFilteredUsers(result);
   }
 
   function orderByDate() {
-    let result = filteredUsers.sort((a, b) => {
-      return b.currentDate - a.currentDate;
+    let result = [...filteredUsers].sort((a, b) => {
+      return b.date - a.date;
     });
-    setUsers([...result]);
+    console.log('date', result)
+    setFilteredUsers(result);
   }
 
   function defaultOrder() {
-    let result = filteredUsers.sort((a, b) => {
-      return a.currentDate - b.currentDate;
+    let result = [...filteredUsers].sort((a, b) => {
+      return a.date - b.date;
     });
-    setUsers([...result]);
+    console.log('antiguos', result)
+    setFilteredUsers(result);
   }
 
   const [search, setSearch] = useState("");
@@ -74,23 +87,33 @@ export default function Budget(props) {
 
   function filter(searchTerm) {
 
-    if(searchTerm === undefined){
+    if(searchTerm.toLowerCase() === undefined){
       setFilteredUsers(users)  
     } else {
       var searchResult = [...users].filter((element) => {
-      return element.budget.includes(searchTerm) 
+      return element.budget.toLowerCase().includes(searchTerm.toLowerCase()) 
     }) 
     setFilteredUsers(searchResult)
     }
 }
 
-  console.log(filteredUsers)
+ const array = filteredUsers   
 
-
-  const budgetForm = filteredUsers.map((user, index) => {
+  const budgetForm = array.map((user, index) => {
     return (
       <div className="budget" key={index}>
-        <p>{user.date}</p>
+        <p>{new Date(user.date).toLocaleDateString("es-ES",
+                            {
+                                year: '2-digit',
+                                month: '2-digit',
+                                day: '2-digit',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                second: '2-digit',
+
+                            })}
+        </p>
+
         <p>
           Nombre del presupuesto: <br />
           <span className="text">{user.budget}</span>{" "}
@@ -108,14 +131,14 @@ export default function Budget(props) {
   return (
     <div className="main-container">
       <div className="buttons-order">
+        <button className="agregar" onClick={() => handleUsers()}>
+          Agregar
+        </button>
         <button onClick={alphabetical}>Ordenar Alfabéticamente</button>
         <button onClick={orderByDate}>Más recientes</button>
         <button onClick={defaultOrder}>Más antiguos</button>
         <input className="search-bar" type="text" placeholder="Buscar..." value={search} onChange={handleSearch} />
       </div>
-      <button className="agregar" onClick={() => handleUsers()}>
-        Agregar
-      </button>
       <div className="budget-container">{budgetForm}</div>
     </div>
   );
