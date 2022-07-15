@@ -1,31 +1,52 @@
 import React from "react";
 import PagesLanguages from "./PagesLanguages";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState} from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import Budget from "./Budget";
 
 export function Main() {
+
+  const [searchParams, setSearchParams] = useSearchParams([]);
+  //console.log(typeof(searchParams.get('webPage'))); 
+
+  function validate(param){
+    console.log(typeof(param))
+    if (!param.match(/^[0-9 ]+$/)) {
+      return 0;
+    } else {
+      return parseInt(param)
+    }
+  }
+  
+
   const [data, setData] = useState(() => {
-    const initialData = {
-      webPage: false,
-      seo: false,
-      ads: false,
-      numPage: 0,
-      numLang: 0,
-      budget: "",
-      client: "",
-    };
-    try {
+      const initialData = {
+        webPage: searchParams.get('webPage') === 'true' ? true : false,
+        seo: searchParams.get('seo') === 'true' ? true : false,
+        ads: searchParams.get('ads') === 'true' ? true : false,
+        numPage: searchParams.get('numPage') ? validate(searchParams.get('numPage')) : 0,
+        numLang: searchParams.get('numLang') ? validate(searchParams.get('numLang')) : 0,
+        budget: searchParams.get('budget') ? searchParams.get('budget') : "",
+        client: searchParams.get('client') ? searchParams.get('client') : "",
+      };
+      return initialData
+    /* try {
       const getData = localStorage.getItem("data");
       return getData ? JSON.parse(getData) : initialData;
     } catch (error) {
       return initialData;
-    }
+    } */
   });
 
-  useEffect(() => {
+  /* useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
-  }, [data]);
+  }, [data]); */
+
+  useEffect(() => {
+    setSearchParams(data)
+  }, [data, setSearchParams]);
+
+
 
   function handleChange(event) {
     const { name, type, checked, value, className } = event.target;
@@ -71,8 +92,6 @@ export function Main() {
           data={data.webPage}
           setData={setData}
         />
-
-        <br />
 
         <input
           type="checkbox"

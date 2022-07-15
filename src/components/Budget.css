@@ -16,6 +16,7 @@
     border-radius: 20px;
     box-shadow: 3px 3px 2px rgb(152, 152, 152);
     color: white;
+    animation: appear 1s
 }
 
 .agregar {
@@ -36,6 +37,7 @@
     background-color: rgb(195, 195, 195);
 }
 .buttons-order{
+    display: inline-block;
     margin: 10px 20px 0px 40px
 }
 .buttons-order button{
@@ -66,4 +68,14 @@
 .search-bar{
     margin-left: 0px;
     font-size: 1em;
+    width: 170px;
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }

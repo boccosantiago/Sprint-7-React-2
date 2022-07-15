@@ -134,7 +134,7 @@ export default function Budget(props) {
         <button className="agregar" onClick={() => handleUsers()}>
           Agregar
         </button>
-        <button onClick={alphabetical}>Ordenar Alfabéticamente</button>
+        <button onClick={alphabetical}>Ordenar A-Z</button>
         <button onClick={orderByDate}>Más recientes</button>
         <button onClick={defaultOrder}>Más antiguos</button>
         <input className="search-bar" type="text" placeholder="Buscar..." value={search} onChange={handleSearch} />

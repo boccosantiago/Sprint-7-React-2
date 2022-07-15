@@ -1,6 +1,7 @@
 import { Panel } from "./styled";
 import Popup from "./Popup";
 import { useState } from "react";
+import "./Popup.css";
 
 
 
@@ -27,7 +28,7 @@ export default function PagesLanguages(props) {
 
   return (
     <div>
-    <Panel show={props.data}>
+    <Panel className="panel" show={props.data}>
       <label className="pages">Número de páginas</label>
       <button 
       className="btnPlusMinus"
