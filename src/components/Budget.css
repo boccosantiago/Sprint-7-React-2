@@ -1,0 +1,81 @@
+.budget-container{
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    z-index: -1;
+    position: relative;
+}
+
+.budget{
+    margin: 10px 10px 20px 10px;
+    padding: 5px 20px ;
+    font-weight: 500;
+    background-color: rgb(64, 64, 214);
+    width: 210px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 2px rgb(152, 152, 152);
+    color: white;
+    animation: appear 1s
+}
+
+.agregar {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(131, 131, 131);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.agregar:hover {
+    background-color: rgb(195, 195, 195);
+}
+
+.agregar:active {
+    transform: scale(.95);
+    background-color: rgb(195, 195, 195);
+}
+.buttons-order{
+    display: inline-block;
+    margin: 10px 20px 0px 40px
+}
+.buttons-order button{
+    border: none;
+    padding: 6px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(131, 131, 131);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.buttons-order button:hover {
+    background-color: rgb(195, 195, 195);
+}
+
+.buttons-order button:active {
+    transform: scale(.95);
+    background-color: rgb(195, 195, 195);
+}
+
+.text{
+    font-weight: 300;
+    font-style: italic;
+}
+
+.search-bar{
+    margin-left: 0px;
+    font-size: 1em;
+    width: 170px;
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

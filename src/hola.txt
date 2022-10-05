@@ -3,3 +3,5 @@ https://codesandbox.io/s/react-example-uctkj?file=/CheckBox.js
 https://codepen.io/matheusfranco/pen/NWqzWbr
 
 https://www.freecodecamp.org/espanol/news/tutorial-de-react-como-trabajar-con-multiples-checkboxes/
+
+https://stackoverflow.com/questions/56473503/input-number-arrows-out-of-input-area
