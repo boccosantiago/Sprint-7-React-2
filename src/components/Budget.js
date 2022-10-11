@@ -26,11 +26,6 @@ export default function Budget(props) {
 
   const fecha = Date.parse(currentDate)
 
-  //const date = currentDate.toString().slice(0, 24);
-
-  /*  const date = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`; */
 
   function handleUsers() {
     const newUser = {
@@ -50,6 +45,12 @@ export default function Budget(props) {
 
   }
 
+  function deleteAll(){
+     setFilteredUsers([])
+     setUsers([])
+  }
+
+  console.log('filtered', filteredUsers)
 
 
   function alphabetical() {
@@ -137,6 +138,9 @@ export default function Budget(props) {
         <button onClick={alphabetical}>Ordenar A-Z</button>
         <button onClick={orderByDate}>Más recientes</button>
         <button onClick={defaultOrder}>Más antiguos</button>
+        <button className="eliminar-todos" onClick={deleteAll}>
+          Eliminar todos
+        </button>
         <input className="search-bar" type="text" placeholder="Buscar..." value={search} onChange={handleSearch} />
       </div>
       <div className="budget-container">{budgetForm}</div>

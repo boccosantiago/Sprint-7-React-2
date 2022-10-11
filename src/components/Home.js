@@ -8,9 +8,9 @@ export function Home(){
 
     return(
        <div className="home">
-        <h1>Bienvenido!</h1>
-        <h3>Aquí podrá calcular el presupuesto para la creación de su página web.</h3>
-        <button className="btnPresupuesto" onClick={()=> navigate('/main')}>Cacular presupuesto</button>
+        <h1>Calculadora de presupuestos</h1>
+        <h3>Aquí podrá calcular el precio para la creación de su página web.</h3>
+        <button className="btnPresupuesto" onClick={()=> navigate('/main')}>Empezar</button>
        </div>
     )
 }
