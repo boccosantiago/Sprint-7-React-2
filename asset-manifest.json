@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/budgetCalculator/static/css/main.94670988.css",
-    "main.js": "/budgetCalculator/static/js/main.d90f11af.js",
-    "static/media/img.jpg": "/budgetCalculator/static/media/img.9259aa1247b9e352fb6b.jpg",
-    "index.html": "/budgetCalculator/index.html",
-    "main.94670988.css.map": "/budgetCalculator/static/css/main.94670988.css.map",
-    "main.d90f11af.js.map": "/budgetCalculator/static/js/main.d90f11af.js.map"
+    "main.css": "/sprint-7-react-2/static/css/main.98fff3b0.css",
+    "main.js": "/sprint-7-react-2/static/js/main.640442db.js",
+    "static/media/img.jpg": "/sprint-7-react-2/static/media/img.9259aa1247b9e352fb6b.jpg",
+    "index.html": "/sprint-7-react-2/index.html",
+    "main.98fff3b0.css.map": "/sprint-7-react-2/static/css/main.98fff3b0.css.map",
+    "main.640442db.js.map": "/sprint-7-react-2/static/js/main.640442db.js.map"
   },
   "entrypoints": [
-    "static/css/main.94670988.css",
-    "static/js/main.d90f11af.js"
+    "static/css/main.98fff3b0.css",
+    "static/js/main.640442db.js"
   ]
 }
