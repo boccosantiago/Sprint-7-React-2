@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/sprint-7-react-2/static/css/main.98fff3b0.css",
-    "main.js": "/sprint-7-react-2/static/js/main.640442db.js",
-    "static/media/img.jpg": "/sprint-7-react-2/static/media/img.9259aa1247b9e352fb6b.jpg",
-    "index.html": "/sprint-7-react-2/index.html",
-    "main.98fff3b0.css.map": "/sprint-7-react-2/static/css/main.98fff3b0.css.map",
-    "main.640442db.js.map": "/sprint-7-react-2/static/js/main.640442db.js.map"
+    "main.css": "/Sprint-7-react-2/static/css/main.01494bb2.css",
+    "main.js": "/Sprint-7-react-2/static/js/main.063d7dd1.js",
+    "static/media/img.jpg": "/Sprint-7-react-2/static/media/img.9259aa1247b9e352fb6b.jpg",
+    "index.html": "/Sprint-7-react-2/index.html",
+    "main.01494bb2.css.map": "/Sprint-7-react-2/static/css/main.01494bb2.css.map",
+    "main.063d7dd1.js.map": "/Sprint-7-react-2/static/js/main.063d7dd1.js.map"
   },
   "entrypoints": [
-    "static/css/main.98fff3b0.css",
-    "static/js/main.640442db.js"
+    "static/css/main.01494bb2.css",
+    "static/js/main.063d7dd1.js"
   ]
 }
